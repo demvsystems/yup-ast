@@ -1,0 +1,58 @@
+{
+  "name": "@demvsystems/yup-ast",
+  "version": "1.0.0",
+  "description": "Rewrite of the original yup-ast due to licensing problems. Converts JSON into yup objects.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint './src/**/*.{js,ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/demvsystems/yup-ast.git"
+  },
+  "author": "spaceemotion",
+  "license": "MIT",
+  "keywords": [
+    "yup",
+    "validation",
+    "json",
+    "ast",
+    "parsing"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.2",
+    "@types/yup": "^0.26.33",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "semantic-release": "^17.0.4",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "yup": "^0.28.3"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
