@@ -1,7 +1,7 @@
 # yup-ast
 
 [![Latest Stable Version](https://img.shields.io/npm/v/@demvsystems/yup-ast.svg)](https://www.npmjs.com/package/@demvsystems/yup-ast)
-[![Build Status](https://img.shields.io/travis/demvsystems/yup-ast/master.svg)](https://travis-ci.org/demvsystems/yup-ast)
+[![Node.js Package](https://github.com/demvsystems/yup-ast/workflows/Node.js%20Package/badge.svg)](https://github.com/demvsystems/yup-ast/actions)
 [![NPM Downloads](https://img.shields.io/npm/dm/@demvsystems/yup-ast.svg)](https://www.npmjs.com/package/@demvsystems/yup-ast)
 [![dependencies Status](https://david-dm.org/demvsystems/yup-ast/status.svg)](https://david-dm.org/demvsystems/yup-ast)
 [![Test Coverage](https://img.shields.io/codecov/c/github/demvsystems/yup-ast/master.svg)](https://codecov.io/github/demvsystems/yup-ast?branch=master)
