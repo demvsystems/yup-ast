@@ -53,6 +53,8 @@ jobs:
 
       - run: yarn install
       - run: yarn run build
+      - name: Set package access to public
+        run: npm config set access public
       - run: yarn run semantic-release --ci
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
