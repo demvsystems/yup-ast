@@ -15,6 +15,7 @@ yarn-error.log*
 coverage/
 
 # JUnit Reports (used mainly in CircleCI)
+coverage/
 reports/
 junit.xml
 
