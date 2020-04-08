@@ -22,6 +22,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Obtain NPM Cache directory
+        id: node-cache-dir
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.node-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-node-
+
       - run: yarn install
       - run: yarn run lint
       - run: yarn run build
