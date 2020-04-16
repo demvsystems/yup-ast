@@ -63,7 +63,7 @@ export function transformAll(json: any[], instance = yup): Schema<any> {
 
     // Call the method with transformed parameters
     return schema[method](...args.map((argument: any) => {
-      if (Array.isArray(argument)) {
+      if (isYupSchemaDefinition(argument)) {
         return transformAll(argument, instance);
       }
 

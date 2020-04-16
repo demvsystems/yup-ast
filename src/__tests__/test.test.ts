@@ -83,6 +83,18 @@ describe('it correctly parses JSON as yup schema', () => {
     });
   });
 
+  it('does not transform non-schema arrays', () => {
+    const schema = transformAll([
+      ['yup.string'],
+      ['yup.required'],
+      ['yup.oneOf', ['yes', 'no']],
+    ]);
+
+    expect(schema.isValidSync('yes')).toEqual(true);
+    expect(schema.isValidSync('no')).toEqual(true);
+    expect(schema.isValidSync('foo')).toEqual(false);
+  });
+
   describe('transformObject', () => {
     it('transforms an empty object', () => {
       const obj = transformObject({});
