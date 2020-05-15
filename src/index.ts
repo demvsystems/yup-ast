@@ -48,7 +48,7 @@ const isYupSchemaDefinition = (value: any): boolean => (
  * @param json
  * @param instance An optional yup instance
  */
-export function transformAll(json: any[], instance = yup): Schema<any> {
+export function transformAll<T = any>(json: any[], instance = yup): Schema<T> {
   const wrapped = Array.isArray(json[0]) ? json : [json];
 
   if (!isYupSchemaDefinition(wrapped)) {
