@@ -81,6 +81,22 @@ describe('it correctly parses JSON as yup schema', () => {
         .rejects
         .toHaveProperty('message', 'provide some text');
     });
+
+    it('handles when() properly', () => {
+      const schema = transformAll([['yup.object', {
+        foo: [['yup.number'], ['yup.when', 'bar', {
+          is: '1',
+          then: [['yup.number'], ['yup.min', 2500], ['yup.required']],
+          otherwise: [['yup.number'], ['yup.nullable']],
+        }]],
+        bar: [['yup.mixed'], ['yup.oneOf', ['1', '6', '7']], ['yup.required']],
+      }]]);
+
+      expect(schema.isValidSync({
+        foo: '1',
+        bar: 512,
+      })).toEqual(false);
+    });
   });
 
   it('does not transform non-schema arrays', () => {
