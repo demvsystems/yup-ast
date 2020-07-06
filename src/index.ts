@@ -32,29 +32,36 @@ const isYupSchemaDefinition = (value: any): boolean => (
  * @param {array} json
  * @param {object} instance
  */
-const transformSchema = (json: any[], instance: typeof yup): Schema<any> => (
-  json.reduce((schema, value: [string]) => {
+const transformSchema = (json: any[], instance: typeof yup): Schema<any> => {
+  const mapArgument = (argument: any) => {
+    if (isYupSchemaDefinition(argument)) {
+      return transformSchema(argument, instance);
+    }
+
+    // Support nested structures (e.g. an array of schemas like '[ [[...]], [[...]], ...]')
+    if (Array.isArray(argument)) {
+      return argument.map(mapArgument);
+    }
+
+    // Check if the given object is actually a plain object
+    // This fixes problems with e.g. regex instances
+    if (Object.prototype.toString.call(argument) === '[object Object]') {
+      return transformObject(argument, instance);
+    }
+
+    return argument;
+  };
+
+  return json.reduce((schema, value: [string]) => {
     const [name, ...args] = value;
 
     // Grab the real method name
     const method = name.substr(DEFINITION_PREFIX.length);
 
     // Call the method with transformed parameters
-    return schema[method](...args.map((argument: any) => {
-      if (isYupSchemaDefinition(argument)) {
-        return transformSchema(argument, instance);
-      }
-
-      // Check if the given object is actually a plain object
-      // This fixes problems with e.g. regex instances
-      if (Object.prototype.toString.call(argument) === '[object Object]') {
-        return transformObject(argument, instance);
-      }
-
-      return argument;
-    }));
-  }, instance)
-);
+    return schema[method](...args.map(mapArgument));
+  }, instance);
+};
 
 /**
  * Transforms the given object into an object

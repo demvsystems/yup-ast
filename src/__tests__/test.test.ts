@@ -1,3 +1,4 @@
+import * as yup from 'yup';
 import { transformAll, transformObject } from '..';
 
 describe('it correctly parses JSON as yup schema', () => {
@@ -109,6 +110,39 @@ describe('it correctly parses JSON as yup schema', () => {
     expect(schema.isValidSync('yes')).toEqual(true);
     expect(schema.isValidSync('no')).toEqual(true);
     expect(schema.isValidSync('foo')).toEqual(false);
+  });
+
+  it('handles arrays of schemas as arguments (issue #2)', () => {
+    function allLessThan(max: number, refs: any[], msg?: string) {
+      return this.test({
+        test(val) {
+          let value = val;
+
+          refs.forEach((ref) => {
+            const number = this.resolve(ref);
+            expect(number).toEqual(expect.any(Number));
+            value += number;
+          });
+
+          return value < max;
+        },
+        message: msg || `All values must be less than ${max}`,
+      });
+    }
+
+    yup.addMethod(yup.number, 'allLessThan', allLessThan);
+
+    const schema = transformAll([['yup.object', {
+      foo: [['yup.number'], ['yup.allLessThan', 10, [[['yup.ref', 'baz']], [['yup.ref', 'bar']]]]],
+      bar: [['yup.number'], ['yup.required']],
+      baz: [['yup.number'], ['yup.required']],
+    }]]);
+
+    expect(schema.isValidSync({
+      foo: 1,
+      bar: 1,
+      baz: 1,
+    })).toEqual(true);
   });
 
   describe('transformObject', () => {
