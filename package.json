@@ -50,7 +50,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "yup": "^0.28.3"
+    "yup": "^0.31.1"
   },
   "files": [
     "dist/**/*"
