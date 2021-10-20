@@ -13,7 +13,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
       - name: Obtain NPM Cache directory
         id: node-cache-dir
@@ -40,7 +40,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
       - name: Obtain NPM Cache directory
         id: node-cache-dir
@@ -60,4 +60,4 @@ jobs:
       - run: yarn run semantic-release --ci
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PRIVATE_TOKEN }}
