@@ -1,6 +1,6 @@
 {
   "name": "@demvsystems/yup-ast",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "Rewrite of the original yup-ast due to licensing problems. Converts JSON into yup objects.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
