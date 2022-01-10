@@ -28,6 +28,7 @@ jobs:
 
       - run: yarn install
       - run: yarn run lint
+      - run: yarn run build
       - run: yarn test --ci
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash) -ct ${{ secrets.CODECOV_TOKEN }}
