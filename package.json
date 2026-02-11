@@ -33,22 +33,22 @@
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.2",
-    "@types/yup": "^0.26.33",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.24.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "husky": "^4.2.3",
-    "jest": "^25.1.0",
-    "semantic-release": "^19.0.0",
-    "sourcemap-validator": "^2.1.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@types/jest": "25.2.3",
+    "@types/node": "13.13.52",
+    "@types/yup": "0.26.37",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.25.2",
+    "husky": "4.3.8",
+    "jest": "25.5.4",
+    "semantic-release": "19.0.5",
+    "sourcemap-validator": "2.1.0",
+    "ts-jest": "25.5.1",
+    "typescript": "3.9.10"
   },
   "dependencies": {
     "yup": "^0.28.3"
