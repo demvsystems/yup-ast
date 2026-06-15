@@ -48,7 +48,7 @@
     "semantic-release": "19.0.5",
     "sourcemap-validator": "2.1.0",
     "ts-jest": "29.4.6",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   },
   "dependencies": {
     "yup": "^0.28.3"
