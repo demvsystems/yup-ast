@@ -51,7 +51,7 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "yup": "^0.32.0"
+    "yup": "^1.0.0"
   },
   "files": [
     "dist/**/*",
