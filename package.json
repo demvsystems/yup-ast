@@ -37,7 +37,7 @@
     "@commitlint/config-conventional": "20.5.3",
     "@types/jest": "30.0.0",
     "@types/node": "24.13.2",
-    "@types/yup": "0.26.37",
+    "@types/yup": "0.32.0",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "eslint": "10.4.1",
@@ -51,7 +51,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "yup": "^0.28.3"
+    "yup": "^0.32.0"
   },
   "files": [
     "dist/**/*",
