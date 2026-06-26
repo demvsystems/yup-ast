@@ -27,7 +27,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache NPM dependencies
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: ${{ steps.node-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
